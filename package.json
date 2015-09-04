@@ -1,0 +1,18 @@
+{
+  "name": "zbox",
+  "version": "1.0.0",
+  "description": "Test application with electron",
+  "main": "app.js",
+  "author": "Elias Nahum",
+  "engines": {
+    "node": "0.12.5",
+    "npm": "2.11.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-electron": "0.0.9",
+    "gulp-ignore": "^1.2.1",
+    "rimraf": "^2.4.3"
+  },
+  "dependencies": {}
+}

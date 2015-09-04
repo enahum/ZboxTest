@@ -1,0 +1,9 @@
+{
+  "name": "zbox",
+  "version": "1.0.0",
+  "description": "Test application with electron",
+  "dependencies": {},
+  "devDependencies": {
+    "angular-mocks": "~1.4.5"
+  }
+}
