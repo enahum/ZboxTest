@@ -27,13 +27,13 @@ gulp.task('build', function() {
                     CFBundleIdentifier: packageJson.name,
                     CFBundleName: packageJson.name,
                     CFBundleVersion: packageJson.version,
-                    icon: 'gulp-electron.icns'
+                    icon: 'icon.icns'
                 },
                 win: {
                     "version-string": packageJson.version,
                     "file-version": packageJson.version,
                     "product-version": packageJson.version,
-                    "icon": 'gulp-electron.ico'
+                    "icon": 'icon.ico'
                 }
             }
         }))

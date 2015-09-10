@@ -28,6 +28,7 @@ app.on('ready', function() {
             icon: NativeImage.createFromPath(__dirname + '/icon.png')
         });
 
+    require('./ipc-notify');
 
     //establecemos la entrada a la aplicación
     mainWindow.loadUrl('file://' + __dirname + '/index.html');

@@ -1,8 +1,8 @@
 /**
  * Created by enahum on 03-09-15.
  */
-module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService',
-    function($window, $scope, $rootScope, $timeout, StreamService) {
+module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService', '$ipc',
+    function($window, $scope, $rootScope, $timeout, StreamService, $ipc) {
         var attachMediaStream = require('attachmediastream'),
             webrtc,
             icons,
@@ -120,6 +120,7 @@ module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService'
          * Inicializa el video y el audio y controlla cuando otra persona se incorpora a la llamada
          */
         $scope.ingresar = function() {
+            $ipc.notify('My notification', 'Ingresando');
             // inicializamos el video y el audio
             if(!webrtc) {
                 webrtc = new SimpleWebRTC({
@@ -224,6 +225,10 @@ module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService'
             });
 
             return webrtc;
+        };
+
+        $scope.back = function(){
+            $rootScope.go('join');
         };
 
     }];

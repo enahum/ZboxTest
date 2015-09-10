@@ -1,3 +1,146 @@
+@import 'bootstrap.min.css';
+@import 'simple-line-icons.css';
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+ul.nav li {
+    cursor: pointer;
+}
+ul.nav li a {
+    cursor: pointer;
+}
+.f-right {
+    float: right !important;
+}
+.nav-tabs > li > a {
+    -moz-border-radius: 3px 3px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+}
+.nav-tabs > li > a::before {
+    -moz-transition: -moz-transform 0.3s;
+    -webkit-transition: -webkit-transform 0.3s;
+    background: #566473;
+    content: '';
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: 40px;
+    transition: transform 0.3s;
+    width: 100%;
+    -moz-transform: scale(0);
+    -o-transform: scale(0);
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+.nav-tabs.nav-primary > li > a::before {
+    background-color: #319db5;
+}
+.nav-tabs.nav-blue > li > a::before {
+    background-color: #00a2d9;
+}
+.nav-tabs.nav-red > li > a::before {
+    background-color: #c75757;
+}
+.nav-tabs.nav-green > li > a::before {
+    background-color: #18a689;
+}
+.nav-tabs.nav-yellow > li > a::before {
+    background-color: #ff9122;
+}
+.nav-tabs .active a::before {
+    width: 100%;
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.nav-tabs a:hover::before {
+    width: 100%;
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.nav-tabs a:focus::before {
+    width: 100%;
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+.nav-tabs:after {
+    bottom: 3px;
+    position: relative;
+    width: 100%;
+    z-index: 120;
+}
+.nav.nav-tabs > li > a {
+    background-color: #fff;
+    border: none;
+    color: #939393;
+}
+.nav.nav-tabs > li > a i {
+    padding-right: 8px;
+}
+.nav.nav-tabs > li.active > a {
+    background-color: #fff;
+    /*border-bottom: none;*/
+    color: #121212;
+}
+.nav.nav-tabs > li:hover > a {
+    background-color: #fff;
+    color: #ffffff;
+}
+.append-icon {
+    position: relative;
+}
+.append-icon input {
+    padding-right: 36px;
+}
+.append-icon i {
+    font-size: 14px;
+    height: 34px;
+    left: auto;
+    line-height: 34px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 36px;
+}
+.append-icon .input-lg ~ i {
+    font-size: 20px;
+    height: 46px;
+    line-height: 46px;
+    width: 46px;
+}
+.prepend-icon {
+    position: relative;
+}
+.prepend-icon input {
+    padding-left: 36px;
+}
+.prepend-icon span {
+    padding-left: 36px;
+}
+.prepend-icon i {
+    font-size: 14px;
+    height: 34px;
+    left: 0;
+    line-height: 34px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 36px;
+}
+
 .hidden {
     display: none !important;
 }
@@ -208,6 +351,11 @@ div#room-selection {
     width: 25em;
     padding: 1em 1.5em 1.3em 1.5em
 }
+div#user-list{
+    margin:2em auto 0;
+    width:90%;
+    padding:1em 1.5em 1.3em
+}
 p {
     color: #eee;
     font-weight: 300;
@@ -300,4 +448,72 @@ svg:hover {
 }
 #hangup:hover circle {
     fill: #dd2c00
+}
+
+div#user-list .mailbox-page {
+    margin-bottom: 15px;
+}
+div#user-list .mailbox-page h1 {
+    /*font-family: 'Lato', arial, sans-serif;*/
+    font-weight: 900;
+    font-size: 32px;
+}
+div#user-list .mailbox-page input {
+    font-size: 18px;
+}
+div#user-list .mailbox-page .append-icon i {
+    font-size: 20px;
+    padding-right: 6px;
+    padding-top: 4px;
+}
+div#user-list .nav-tabs a {
+    /*font-family: 'Lato', arial, sans-serif;*/
+    font-weight: 900;
+    font-size: 12px;
+}
+
+div#user-list .nav-tabs a {
+    /*font-family: 'Lato', arial, sans-serif;*/
+    font-weight: 900;
+    font-size: 12px;
+}
+div#user-list .nav-tabs a::before {
+    background: #4285f4;
+    height: 2px;
+    top: 37px;
+}
+div#user-list .nav-tabs .open > a {
+    background: none;
+}
+div#user-list .nav-tabs .open > a:hover {
+    background: none;
+}
+div#user-list .nav-tabs .open > a:focus {
+    background: none;
+}
+div#user-list .nav.nav-tabs > li > a {
+    background: inherit;
+}
+div#user-list .nav.nav-tabs > li.active > a {
+    background: inherit;
+    color: #4285f4;
+    margin-bottom: 2px;
+    margin-right: 0;
+}
+div#user-list .nav.nav-tabs > li.active > a:hover {
+    border: none;
+}
+div#user-list .nav.nav-tabs > li:hover > a {
+    background: inherit;
+}
+div#user-list .nav-tabs > li i {
+    color: #C3C3C3;
+    font-size: 20px;
+    padding-right: 12px;
+}
+div#user-list .nav-tabs > li i:hover {
+    color: #7e7e7e;
+}
+div#user-list .nav-tabs > li i.icon-rounded-heart:hover {
+    color: #C75757;
 }

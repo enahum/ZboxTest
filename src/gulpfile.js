@@ -7,6 +7,7 @@ var gulp = require('gulp'),
 
 // plugins
 var jshint = require('gulp-jshint'),
+    gulpif = require('gulp-if'),
     clean = require('gulp-rimraf'),
     uglify = require('gulp-uglify'),
     browserify = require('gulp-browserify'),
@@ -23,15 +24,17 @@ gulp.task('lint', function() {
 });
 
 // limpia la carpeta dist donde estan los archivos que se utilizan en ejecución
-gulp.task('clean', function(cb) {
-    return rimraf('./dist/', cb);
+gulp.task('clean', function(done) {
+    return rimraf('./dist/', function(){
+        done();
+    });
 });
 
 // minifica los js y los css
 gulp.task('minify', function() {
-    gulp.src('./css/style.css')
-        .pipe(minifyCss({compatibility: 'ie8'}))
-        .pipe(gulp.dest('./dist/'));
+    gulp.src('./css/**/*')
+        //.pipe(gulpif('*.css', minifyCss({compatibility: 'ie8'})))
+        .pipe(gulp.dest('./dist/css/'));
 
     return gulp.src('./app/index.js')
         .pipe(browserify({

@@ -3,26 +3,7 @@
     <video id="remote-video" autoplay></video>
     <video id="local-video" autoplay muted ng-class="{active: !hide.videos}"></video>
 </div>
-
-<div id="room-selection" ng-class="{hidden: hide.room_selection}">
-    <h1>zBox webRTC test</h1>
-    <p id="instructions">Por favor ingresa el nombre de la sala.</p>
-    <div>
-        <form name="sala" id="sala" ng-submit="ingresar()" novalidate>
-            <div id="room-id-input-div">
-                <input type="text" name="id" id="id" ng-model="nombreSala" autofocus required ng-minlength="5" />
-                <div ng-messages="sala.id.$error" ng-show="sala.id.$dirty">
-                    <label ng-message="required" class="error-label" for="id" id="id-label-required">El nombre de la sala es obligatorio.</label>
-                    <label ng-message="minlength" class="error-label" for="id" id="id-label-minlength">El nombre de la sala debe tener al menos 5 carácteres.</label>
-                </div>
-            </div>
-            <div id="room-id-input-buttons">
-                <button id="join-button" ng-model="online" ng-disabled="!online">INGRESAR</button>
-            </div>
-        </form>
-    </div>
-</div>
-
+<button ng-click="back()">Volver</button>
 <footer>
     <div id="sharing-div" ng-class="{active: !connected && waiting}">
         <div id="room-link"><span>En espera a que se unan a la llamada</span>  <button id="rejoin-button" ng-click="colgar()">REINGRESAR</button></div>

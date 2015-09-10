@@ -1,0 +1,23 @@
+<div id="room-selection">
+    <h1>zBox webRTC test</h1>
+    <p id="instructions">Por favor ingresa tu nombre de usuario.</p>
+    <div>
+        <form name="sala" id="sala" ng-submit="ingresar()" novalidate>
+            <div id="room-id-input-div">
+                <input type="text" name="username" id="username" ng-model="username" autofocus required ng-minlength="5" />
+                <div ng-messages="sala.username.$error" ng-show="sala.username.$dirty || loginStatus ">
+                    <label ng-message="required" class="error-label" for="username" id="id-label-required">El nombre del usuario es obligatorio.</label>
+                    <label ng-message="minlength" class="error-label" for="username" id="id-label-minlength">El nombre del usuario debe tener al menos 5 carácteres.</label>
+                    <label ng-show="loginStatus" class="error-label" for="username">{{ loginStatus }}</label>
+                </div>
+            </div>
+            <div id="room-id-input-buttons">
+                <button id="join-button" ng-disabled="!online">INGRESAR</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <div id="status-div" ng-class="{active: !online}">Fuera de linea</div>
+</footer>
