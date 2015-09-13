@@ -6,6 +6,8 @@ var app = require('app'),
     NativeImage = require('native-image'),
     mainWindow = null;
 
+require('./ipc-notify');
+
 
 // Cuando todas las ventanas están cerradas salir de la aplicacion
 app.on('window-all-closed', function() {
@@ -27,8 +29,6 @@ app.on('ready', function() {
             fullscreen: false,
             icon: NativeImage.createFromPath(__dirname + '/icon.png')
         });
-
-    require('./ipc-notify');
 
     //establecemos la entrada a la aplicación
     mainWindow.loadUrl('file://' + __dirname + '/index.html');
