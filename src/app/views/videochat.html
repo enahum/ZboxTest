@@ -1,9 +1,9 @@
-<div id="videos" ng-class="{hidden: hide.videos}">
+<div id="videos">
     <video id="mini-video" autoplay muted></video>
     <video id="remote-video" autoplay></video>
-    <video id="local-video" autoplay muted ng-class="{active: !hide.videos}"></video>
+    <video id="local-video" autoplay muted ng-class="{active: localVideo}"></video>
 </div>
-<button ng-click="back()">Volver</button>
+
 <footer>
     <div id="sharing-div" ng-class="{active: !connected && waiting}">
         <div id="room-link"><span>En espera a que se unan a la llamada</span>  <button id="rejoin-button" ng-click="colgar()">REINGRESAR</button></div>

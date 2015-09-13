@@ -9,7 +9,8 @@ ipc.on('notify', function(event, args){
         title: args.title,
         message: args.message,
         sound: true, // Solo con Notification Center or Windows Toasters
-        wait: true,
+        wait: false,
+        time: 5000,
         appIcon: __dirname + '/icon.png'
     });
 });

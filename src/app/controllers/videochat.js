@@ -30,6 +30,9 @@ module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService'
             }
         };
 
+        /**
+         * Metodo que muestra los iconos de operaciones en el DOM
+         */
         showIcons = function() {
             angular.element(document.querySelector('#icons')).removeClass('hidden').addClass('active');
             if(icons) {
@@ -40,42 +43,11 @@ module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService'
             }, 5000);
         };
 
-        $scope.hide = {
-            room_selection: false,
-            videos: true
-        };
+        $scope.srv = StreamService;
+        $scope.localVideo = true;
         $scope.connected = false;
         $scope.waiting = false;
         $scope.status = null;
-        $scope.online = $window.navigator.onLine;
-
-        // identificamos cuando esta desconectado
-        $window.addEventListener("offline", function () {
-            $scope.$apply(function() {
-                $scope.online = false;
-            });
-        }, false);
-
-        // identificamos cuando esta conectado
-        $window.addEventListener("online", function () {
-            $scope.$apply(function () {
-                $scope.online = true;
-            });
-        }, false);
-
-        $window.addEventListener('mousemove', function() {
-           if($scope.hide.room_selection) {
-               showIcons();
-           }
-        });
-
-        $rootScope.$on('online', function() {
-            $scope.online = true;
-        });
-
-        $rootScope.$on('offline', function() {
-            $scope.online = false;
-        });
 
         /**
          * Metodo que se utiliza
@@ -98,29 +70,26 @@ module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService'
          * Cuelga la llamada
          */
         $scope.colgar = function() {
+            StreamService.hangup();
+            StreamService.localStream = null;
+            $scope.connected = false;
+            $scope.waiting = false;
+            $scope.status = null;
+            angular.element(document.querySelector('#icons')).removeClass('active').addClass('hidden');
+
             if(webrtc) {
                 webrtc.leaveRoom();
                 webrtc.stopLocalVideo();
-                StreamService.localStream = null;
-                $scope.hide.videos = true;
-                $scope.hide.room_selection = false;
-                $scope.connected = false;
-                $scope.waiting = false;
-                $scope.status = null;
-                angular.element(document.querySelector('#icons')).removeClass('active').addClass('hidden');
-                return true;
             }
 
-            return false;
+            $rootScope.go('list');
         };
 
+        $scope.$on('showIcons', function(){
+            showIcons();
+        });
 
-        /**
-         * Metodo que ejecutamos luego de especificar la sala a unirse
-         * Inicializa el video y el audio y controlla cuando otra persona se incorpora a la llamada
-         */
-        $scope.ingresar = function() {
-            $ipc.notify('My notification', 'Ingresando');
+        $scope.$on('$viewContentLoaded', function(){
             // inicializamos el video y el audio
             if(!webrtc) {
                 webrtc = new SimpleWebRTC({
@@ -137,10 +106,9 @@ module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService'
 
             // una vez inicializado el video y audio nos unimos a la sala (llamada)
             webrtc.on('readyToCall', function () {
-                webrtc.joinRoom($scope.nombreSala);
+                webrtc.joinRoom(StreamService.room);
+                console.log(StreamService.room);
                 $scope.$apply(function() {
-                    $scope.hide.videos = false;
-                    $scope.hide.room_selection = true;
                     $scope.waiting = true;
                 });
             });
@@ -173,26 +141,28 @@ module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService'
                 // show the ice connection state
                 if (peer && peer.pc) {
                     peer.pc.on('iceConnectionStateChange', function (event) {
-                        switch (peer.pc.iceConnectionState) {
-                            case 'checking':
-                                $scope.status = 'Conectando...';
-                                break;
-                            case 'connected':
-                            case 'completed': // on caller side
-                                $scope.status = 'Conectado.';
-                                $scope.connected = true;
-                                $scope.waiting = false;
-                                break;
-                            case 'disconnected':
-                                $scope.status = 'Disconectado.';
-                                break;
-                            case 'failed':
-                                $scope.status = 'Conexión fallida';
-                                break;
-                            case 'closed':
-                                $scope.status = 'Conexión cerrada';
-                                break;
-                        }
+                        $scope.$apply(function(){
+                            switch (peer.pc.iceConnectionState) {
+                                case 'checking':
+                                    $scope.status = 'Conectando...';
+                                    break;
+                                case 'connected':
+                                case 'completed': // on caller side
+                                    $scope.status = 'Conectado.';
+                                    $scope.connected = true;
+                                    $scope.waiting = false;
+                                    break;
+                                case 'disconnected':
+                                    $scope.status = 'Disconectado.';
+                                    break;
+                                case 'failed':
+                                    $scope.status = 'Conexión fallida';
+                                    break;
+                                case 'closed':
+                                    $scope.status = 'Conexión cerrada';
+                                    break;
+                            }
+                        });
                     });
                 }
             });
@@ -223,12 +193,5 @@ module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService'
             webrtc.on('connectivityError', function (peer) {
                 console.log('remote fail');
             });
-
-            return webrtc;
-        };
-
-        $scope.back = function(){
-            $rootScope.go('join');
-        };
-
+        });
     }];

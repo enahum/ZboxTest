@@ -3,6 +3,8 @@
  */
 
 // utilizamos require porque las librerias de angular serán cargadas con browserify
+require('jquery/dist/jquery.min.js');
+require('noty/js/noty/packaged/jquery.noty.packaged.min.js');
 require('angular');
 require('angular-messages');
 require('angular-bootstrap');
@@ -20,6 +22,7 @@ app.config(require('./routes'));
 
 // cargamos los servicios disponibles
 app.factory('StreamService', require('./services/streamService'));
+app.directive('portforlioItem', require('./directives/portfolioItem'));
 app.constant('SocketURL', 'http://localhost:3000/');
 // cargamos el controlador principal
 app.controller('startController', require('./controllers/start'));

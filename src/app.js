@@ -20,7 +20,7 @@ app.on('ready', function() {
     // definimos el tamaño de la aplicación y algunos parametros
     mainWindow = new browserW(
         {
-            width: 800,
+            width: 1024,
             height:600,
             center: true,
             resizable: true,

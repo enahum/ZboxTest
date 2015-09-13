@@ -4,7 +4,7 @@
     <div>
         <form name="sala" id="sala" ng-submit="ingresar()" novalidate>
             <div id="room-id-input-div">
-                <input type="text" name="username" id="username" ng-model="username" autofocus required ng-minlength="5" />
+                <input type="text" name="username" id="username" ng-model="srv.username" autofocus required ng-minlength="5" />
                 <div ng-messages="sala.username.$error" ng-show="sala.username.$dirty || loginStatus ">
                     <label ng-message="required" class="error-label" for="username" id="id-label-required">El nombre del usuario es obligatorio.</label>
                     <label ng-message="minlength" class="error-label" for="username" id="id-label-minlength">El nombre del usuario debe tener al menos 5 carácteres.</label>
@@ -12,12 +12,12 @@
                 </div>
             </div>
             <div id="room-id-input-buttons">
-                <button id="join-button" ng-disabled="!online">INGRESAR</button>
+                <button id="join-button" ng-disabled="!srv.online">INGRESAR</button>
             </div>
         </form>
     </div>
 </div>
 
 <footer>
-    <div id="status-div" ng-class="{active: !online}">Fuera de linea</div>
+    <div id="status-div" ng-class="{active: !srv.online}">Fuera de linea</div>
 </footer>

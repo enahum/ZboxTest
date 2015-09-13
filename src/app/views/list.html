@@ -1,185 +1,26 @@
 <div id="user-list">
 
+    <section>
+        <div class="mailbox-page">
+            <h1>Lista de usuarios activos</h1>
+            <div class="append-icon">
+                <input type="text" id="user-search" placeholder="Buscar..." ng-model="search">
+                <i class="icon-magnifier"></i>
+            </div>
+        </div>
+        <ul class="nav nav-tabs text-right">
+            <li class="f-right" ng-class="{active: sortby === 'date'}"><a ng-click="sortby = 'date'">Recientes</a></li>
+            <li class="f-right" ng-class="{active: sortby === 'name'}"><a ng-click="sortby = 'name'">Alfabeticamente</a></li>
+        </ul>
+        <div class="mt-10"></div>
+        <div id="portfolio" class="portfolio-6 portfolio-nomargin portfolio-fullwidth clearfix" ng-cloak>
 
-            <section>
-                <div class="mailbox-page">
-                    <h1>Lista de usuarios activos</h1>
-                    <div class="append-icon">
-                        <input type="text" id="user-search" placeholder="Buscar...">
-                        <i class="icon-magnifier"></i>
-                    </div>
-                </div>
-                <ul class="nav nav-tabs text-right">
-                    <li class="active f-right"><a href="#recent" data-toggle="tab">Recientes</a></li>
-                    <li class="f-right"><a href="#alphabetically" data-toggle="tab">Alfabeticamente</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane fade" id="alphabetically">
-                        <div id="quickview-sidebar" class="open">
-                            <div class="quickview">
-                                    <div class="fade active in" id="chat">
-                                        <div class="chat-body current">
-                                            <div class="chat-groups">
-                                                <div class="title">GROUP CHATS</div>
-                                                <ul>
-                                                    <li><i class="turquoise"></i> Favorites</li>
-                                                    <li><i class="turquoise"></i> Office Work</li>
-                                                    <li><i class="turquoise"></i> Friends</li>
-                                                </ul>
-                                            </div>
-                                            <div class="chat-list">
-                                                <div class="title">FAVORITES</div>
-                                                <ul>
-                                                    <li class="clearfix">
-                                                        <div class="user-img">
-                                                            <img src="assets/images/avatars/avatar13.png" alt="avatar">
-                                                        </div>
-                                                        <div class="user-details">
-                                                            <div class="user-name">Bobby Brown</div>
-                                                            <div class="user-txt">On the road again...</div>
-                                                        </div>
-                                                        <div class="user-status">
-                                                            <i class="online"></i>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix">
-                                                        <div class="user-img">
-                                                            <img src="assets/images/avatars/avatar5.png" alt="avatar">
-                                                            <div class="pull-right badge badge-danger">3</div>
-                                                        </div>
-                                                        <div class="user-details">
-                                                            <div class="user-name">Alexa Johnson</div>
-                                                            <div class="user-txt">Still at the beach</div>
-                                                        </div>
-                                                        <div class="user-status">
-                                                            <i class="away"></i>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix">
-                                                        <div class="user-img">
-                                                            <img src="assets/images/avatars/avatar10.png" alt="avatar">
-                                                        </div>
-                                                        <div class="user-details">
-                                                            <div class="user-name">Bobby Brown</div>
-                                                            <div class="user-txt">On stage...</div>
-                                                        </div>
-                                                        <div class="user-status">
-                                                            <i class="busy"></i>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="chat-list">
-                                                <div class="title">FRIENDS</div>
-                                                <ul>
-                                                    <li class="clearfix">
-                                                        <div class="user-img">
-                                                            <img src="assets/images/avatars/avatar7.png" alt="avatar">
-                                                            <div class="pull-right badge badge-danger">3</div>
-                                                        </div>
-                                                        <div class="user-details">
-                                                            <div class="user-name">James Miller</div>
-                                                            <div class="user-txt">At work...</div>
-                                                        </div>
-                                                        <div class="user-status">
-                                                            <i class="online"></i>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix">
-                                                        <div class="user-img">
-                                                            <img src="assets/images/avatars/avatar11.png" alt="avatar">
-                                                        </div>
-                                                        <div class="user-details">
-                                                            <div class="user-name">Fred Smith</div>
-                                                            <div class="user-txt">Waiting for tonight</div>
-                                                        </div>
-                                                        <div class="user-status">
-                                                            <i class="offline"></i>
-                                                        </div>
-                                                    </li>
-                                                    <li class="clearfix">
-                                                        <div class="user-img">
-                                                            <img src="assets/images/avatars/avatar8.png" alt="avatar">
-                                                        </div>
-                                                        <div class="user-details">
-                                                            <div class="user-name">Ben Addams</div>
-                                                            <div class="user-txt">On my way to NYC</div>
-                                                        </div>
-                                                        <div class="user-status">
-                                                            <i class="offline"></i>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="chat-conversation">
-                                            <div class="conversation-header">
-                                                <div class="user clearfix">
-                                                    <div class="chat-back">
-                                                        <i class="icon-action-undo"></i>
-                                                    </div>
-                                                    <div class="user-details">
-                                                        <div class="user-name">James Miller</div>
-                                                        <div class="user-txt">On the road again...</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="conversation-body">
-                                                <ul>
-                                                    <li class="img">
-                                                        <div class="chat-detail">
-                                                            <span class="chat-date">today, 10:38pm</span>
-                                                            <div class="conversation-img">
-                                                                <img src="assets/images/avatars/avatar4.png" alt="avatar 4">
-                                                            </div>
-                                                            <div class="chat-bubble">
-                                                                <span>Hi you!</span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="img">
-                                                        <div class="chat-detail">
-                                                            <span class="chat-date">today, 10:45pm</span>
-                                                            <div class="conversation-img">
-                                                                <img src="assets/images/avatars/avatar4.png" alt="avatar 4">
-                                                            </div>
-                                                            <div class="chat-bubble">
-                                                                <span>Are you there?</span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="img">
-                                                        <div class="chat-detail">
-                                                            <span class="chat-date">today, 10:51pm</span>
-                                                            <div class="conversation-img">
-                                                                <img src="assets/images/avatars/avatar4.png" alt="avatar 4">
-                                                            </div>
-                                                            <div class="chat-bubble">
-                                                                <span>Send me a message when you come back.</span>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                            <div class="conversation-message">
-                                                <input type="text" placeholder="Your message..." class="form-control form-white send-message">
-                                                <div class="item-footer clearfix">
-                                                    <div class="footer-actions">
-                                                        <i class="icon-rounded-marker"></i>
-                                                        <i class="icon-rounded-camera"></i>
-                                                        <i class="icon-rounded-paperclip-oblique"></i>
-                                                        <i class="icon-rounded-alarm-clock"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <article class="portfolio-item" ng-repeat="u in srv.users | filter:search | orderBy: sortby track by $index">
+                <portforlio-item user="u" call="makeCall($index)"></portforlio-item>
+            </article>
+        </div>
+    </section>
 </div>
 <footer>
-    <div id="status-div" ng-class="{active: !online}">Fuera de linea</div>
+    <div id="status-div" ng-class="{active: !srv.online}">Fuera de linea</div>
 </footer>

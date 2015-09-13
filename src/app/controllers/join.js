@@ -2,25 +2,12 @@
  * Created by enahum on 09-09-15.
  */
 
-module.exports = ['$scope', '$rootScope', '$timeout', 'StreamService', '$ipc',
-    function($scope, $rootScope, $timeout, StreamService, $ipc) {
-        $scope.online = true;
-        $scope.username = StreamService.username;
-
-        $rootScope.$on('online', function(){
-           $scope.$apply(function(){
-            $scope.online = true;
-           });
-        });
-
-        $rootScope.$on('offline', function(){
-            $scope.$apply(function(){
-                $scope.online = false;
-            });
-        });
+module.exports = ['$scope', '$rootScope', 'StreamService',
+    function($scope, $rootScope, StreamService) {
+        $scope.srv = StreamService;
 
         $scope.ingresar = function() {
-            StreamService.login($scope.username, function(result){
+            StreamService.login(function(result){
                 switch (result) {
                     case null:
                         $scope.$apply(function(){

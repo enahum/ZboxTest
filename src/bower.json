@@ -2,7 +2,10 @@
   "name": "zbox",
   "version": "1.0.0",
   "description": "Test application with electron",
-  "dependencies": {},
+  "dependencies": {
+    "fontawesome": "~4.4.0",
+    "animate.css": "~3.4.0"
+  },
   "devDependencies": {
     "angular-mocks": "~1.4.5"
   }

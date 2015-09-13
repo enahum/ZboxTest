@@ -42,8 +42,8 @@ gulp.task('minify', function() {
             debug: true
         }))
         .pipe(concat('bundled.js'))
-        .pipe(buffer())
-        .pipe(uglify())
+        //.pipe(buffer())
+        //.pipe(uglify())
         .pipe(gulp.dest('./dist/'));
 });
 

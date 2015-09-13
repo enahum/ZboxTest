@@ -21,17 +21,17 @@ Descarga la aplicación para tu plataforma:
 
 ## Super facil de utilizar:
 
-### 1. Ingresa el nombre de una sala
+### 1. Ingresa tu nombre
 
-Especifica el nombre de una sala idealmente el nombre debe ser la combinación de los nombres propios de los participantes
+Especifica el tu nombre o un sobrenombre con el que te darás a conocer y te identificaran los demas
 
-### 2. Comparte el nombre de la sala
+### 2. Selecciona a quien llamar
 
-Dale el nombre de la sala al otro participante para que ambos puedan establecer la comunicación
+Busca o selecciona una persona que te aparece en la lista y presiona el icono de llamar
 
-### 3. Ingresa a la sala
+### 3. Atiende la llamada
 
-Una vez que ingreses a la sala sólo tendrás que esperar a que el otro participante se conecte y comenzará la conferencia
+La persona a la que llamas tiene la capacidad de aceptar o rechazar la llamada, al aceptar comenzarán hablar
 
 
 
