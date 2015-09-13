@@ -85,6 +85,13 @@ module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService'
             $rootScope.go('list');
         };
 
+        $scope.$on('stopVideo', function(){
+            if(webrtc) {
+                webrtc.leaveRoom();
+                webrtc.stopLocalVideo();
+            }
+        });
+
         $scope.$on('showIcons', function(){
             showIcons();
         });

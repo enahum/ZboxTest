@@ -19,7 +19,7 @@ gulp.task('build', function() {
             cache: './cache',
             version: 'v0.31.2',
             packaging: true,
-            platforms: ['win32-x64', 'darwin-x64', 'linux-x64'],
+            platforms: ['win32-ia32', 'win32-x64', 'darwin-x64', 'linux-x64'],
             asar: true,
             platformResources: {
                 darwin: {

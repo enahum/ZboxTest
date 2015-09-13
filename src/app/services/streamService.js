@@ -45,7 +45,9 @@ module.exports = ['$rootScope', 'SocketURL', '$ipc', '$timeout',
                     client.emit('list', function(users){
                         var i = users.length;
                         if(i > 0) {
-                            srv.users = users;
+                            $rootScope.$apply(function() {
+                                srv.users = users;
+                            });
                         }
                     });
                 },

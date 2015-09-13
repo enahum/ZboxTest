@@ -15,6 +15,10 @@ module.exports = ['$window', '$rootScope', '$state', '$timeout', 'StreamService'
                 }
             };
 
+        $rootScope.$on('$stateChangeStart', function(){
+           $rootScope.$broadcast('stopVideo');
+        });
+
         $window.addEventListener('mousemove', function() {
             $rootScope.$broadcast('showIcons');
         });
