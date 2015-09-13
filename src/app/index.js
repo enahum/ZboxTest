@@ -23,7 +23,7 @@ app.config(require('./routes'));
 // cargamos los servicios disponibles
 app.factory('StreamService', require('./services/streamService'));
 app.directive('portforlioItem', require('./directives/portfolioItem'));
-app.constant('SocketURL', 'http://localhost:3000/');
+app.constant('SocketURL', 'http://zbox.herokuapp.com/');
 // cargamos el controlador principal
 app.controller('startController', require('./controllers/start'));
 app.controller('joinController', require('./controllers/join'));
