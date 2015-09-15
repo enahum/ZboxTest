@@ -33,17 +33,17 @@ gulp.task('clean', function(done) {
 // minifica los js y los css
 gulp.task('minify', function() {
     gulp.src('./css/**/*')
-        //.pipe(gulpif('*.css', minifyCss({compatibility: 'ie8'})))
+        .pipe(gulpif('*.css', minifyCss({compatibility: 'ie8'})))
         .pipe(gulp.dest('./dist/css/'));
 
     return gulp.src('./app/index.js')
         .pipe(browserify({
             insertGlobals: true,
-            debug: true
+            debug: false
         }))
         .pipe(concat('bundled.js'))
-        //.pipe(buffer())
-        //.pipe(uglify())
+        .pipe(buffer())
+        .pipe(uglify())
         .pipe(gulp.dest('./dist/'));
 });
 

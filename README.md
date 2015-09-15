@@ -8,9 +8,9 @@ zBox Test es una aplicación multi-plataforma basada en [Atom Electron](http://e
 ## Disponible para Windows, Mac OSX y Linux
 
 Descarga la aplicación para tu plataforma:
-* [Windows 32-bit](http://github.com/enahum/zBoxTest/releases/download/v1.1.0/zbox-1.1.0-win32-ia32.zip) o [Windows 64-bit](http://github.com/enahum/zBoxTest/releases/download/v1.1.0/zbox-1.1.0-win32-x64.zip)
-* [Mac OSX](http://github.com/enahum/zBoxTest/releases/download/v1.1.0/zbox-1.1.0-darwin-x64.zip)
-* [Linux](http://github.com/enahum/zBoxTest/releases/download/v1.1.0/zbox-1.1.0-win32-x64.zip)
+* [Windows 32-bit](http://github.com/enahum/zBoxTest/releases/download/v1.1.1/zbox-1.1.1-win32-ia32.zip) o [Windows 64-bit](http://github.com/enahum/zBoxTest/releases/download/v1.1.1/zbox-1.1.1-win32-x64.zip)
+* [Mac OSX](http://github.com/enahum/zBoxTest/releases/download/v1.1.1/zbox-1.1.1-darwin-x64.zip)
+* [Linux](http://github.com/enahum/zBoxTest/releases/download/v1.1.1/zbox-1.1.1-win32-x64.zip)
 
 ## Como ejecutarlo
 1. Descomprime el archivo .zip
@@ -32,9 +32,3 @@ Busca o selecciona una persona que te aparece en la lista y presiona el icono de
 ### 3. Atiende la llamada
 
 La persona a la que llamas tiene la capacidad de aceptar o rechazar la llamada, al aceptar comenzarán hablar
-
-
-## Problemas conocidos
-
-En Winows Vista (32bit) arroja un error en vez de mostrar las notificaciones presentando una pantalla de alerta, 
-este es un error causado por [node-notifier](https://github.com/mikaelbr/node-notifier)

@@ -1,11 +1,14 @@
 /**
- * Created by enahum on 09-09-15.
+ * JoinController permite ingresar a la aplicación como un usuario
  */
 
 module.exports = ['$scope', '$rootScope', 'StreamService',
     function($scope, $rootScope, StreamService) {
         $scope.srv = StreamService;
 
+        /**
+         * Realiza el inicio de sesion
+         */
         $scope.ingresar = function() {
             StreamService.login(function(result){
                 switch (result) {
@@ -24,5 +27,4 @@ module.exports = ['$scope', '$rootScope', 'StreamService',
                 }
             });
         };
-
     }];

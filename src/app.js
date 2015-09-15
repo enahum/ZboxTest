@@ -4,10 +4,10 @@
 var app = require('app'),
     browserW = require('browser-window'),
     NativeImage = require('native-image'),
+    Tray = require('tray'),
     mainWindow = null;
 
-require('./ipc-notify');
-
+require('crash-reporter').start();
 
 // Cuando todas las ventanas están cerradas salir de la aplicacion
 app.on('window-all-closed', function() {
@@ -16,9 +16,13 @@ app.on('window-all-closed', function() {
         app.quit();
     }
 });
-
+var isWin = /^win/.test(process.platform);
+console.log(isWin);
 // cuando la aplicacion esta lista ha terminado de inicializarse
 app.on('ready', function() {
+    var appIcon = NativeImage.createFromPath(__dirname + '/icon.png')
+    var tray = new Tray(__dirname + '/icon.png');
+    require('./ipc-notify')(tray, appIcon);
     // definimos el tamaño de la aplicación y algunos parametros
     mainWindow = new browserW(
         {
@@ -27,8 +31,9 @@ app.on('ready', function() {
             center: true,
             resizable: true,
             fullscreen: false,
-            icon: NativeImage.createFromPath(__dirname + '/icon.png')
+            icon: appIcon
         });
+
 
     //establecemos la entrada a la aplicación
     mainWindow.loadUrl('file://' + __dirname + '/index.html');

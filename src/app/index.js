@@ -16,7 +16,6 @@ require('angular-fullscreen')(angular);
 //declaramos la app en angular
 var app = angular.module('zboxApp', ['ui.router', 'ui.bootstrap', 'ngMessages', 'angularFullscreen', 'ngIpc']);
 
-
 //cargamos las rutas de la app
 app.config(require('./routes'));
 

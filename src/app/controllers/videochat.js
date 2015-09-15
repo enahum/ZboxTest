@@ -1,8 +1,8 @@
 /**
  * Created by enahum on 03-09-15.
  */
-module.exports = ['$window', '$scope', '$rootScope', '$timeout', 'StreamService', '$ipc',
-    function($window, $scope, $rootScope, $timeout, StreamService, $ipc) {
+module.exports = ['$scope', '$rootScope', '$timeout', 'StreamService',
+    function($scope, $rootScope, $timeout, StreamService) {
         var attachMediaStream = require('attachmediastream'),
             webrtc,
             icons,
