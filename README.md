@@ -1,7 +1,7 @@
 # zBox Test - Desafío Dev. Node.js
 
 [![Build Status](https://travis-ci.org/enahum/zBoxTest.svg)](https://travis-ci.org/enahum/zBoxTest)
-[![Dependency Status](https://david-dm.org/enahum/zBoxTest.svg)\(https://david-dm.org/enahum/zBoxTest)
+[![Dependency Status](https://david-dm.org/enahum/zBoxTest.svg)](https://david-dm.org/enahum/zBoxTest)
 [![devDependency Status](https://david-dm.org/enahum/zBoxTest/dev-status.svg)](https://david-dm.org/enahum/zBoxTest#info=devDependencies)
 
 zBox Test es una aplicación multi-plataforma basada en [Atom Electron](http://electron.atom.io/) y [SimpleWebRTC](http://simplewebrtc.com) que permite realizar una llamada en video conferencia entre 2 personas.
