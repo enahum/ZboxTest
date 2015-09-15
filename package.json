@@ -6,7 +6,7 @@
   "author": "Elias Nahum",
   "scripts": {
     "prestart": "./node_modules/.bin/gulp",
-    "test": "./node_modules/.bin/karma start",
+    "test": "./node_modules/.bin/karma start --single-run",
     "start": "./node_modules/.bin/electron src/app.js"
   },
   "engines": {
