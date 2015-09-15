@@ -15,9 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'dist/*.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'spec/**/*[sS]pec.js'
+      'src/dist/*.js',
+      'src/bower_components/angular-mocks/angular-mocks.js',
+      'src/spec/**/*[sS]pec.js'
     ],
 
 
@@ -57,7 +57,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Firefox', 'Chrome'],
 
 
     // Continuous Integration mode
